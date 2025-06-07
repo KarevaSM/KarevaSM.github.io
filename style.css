@@ -1,16 +1,85 @@
+/* Подключение шрифта Ruthless Sketch */
+@font-face {
+    font-family: 'Ruthless Sketch';
+    src: url('../fonts/RuthlessSketch.ttf') format('truetype');
+}
+
+/* Общие стили */
 body {
-  font-family: 'Comic Sans MS', cursive;
-  background-color: #FFF5E1;
-  text-align: center;
+    background-color: #FFF5E6; /* Тёплый кремовый фон */
+    background-image: url('../images/paper-texture.jpg');
+    background-blend-mode: multiply;
+    margin: 0;
+    padding: 0;
+    cursor: url('../images/paw.cur'), auto;
+    font-family: 'Ruthless Sketch', cursive;
+    overflow-x: hidden;
 }
-h1 {
-  color: #8B4513; /* Коричневый для "медвежьей" темы */
+
+.container {
+    text-align: center;
+    padding-top: 10vh;
 }
-.button {
-  background-color: #FFA07A;
-  padding: 10px 20px;
-  margin: 10px;
-  border-radius: 20px;
-  text-decoration: none;
-  color: white;
+
+/* Заголовок */
+.welcome-title {
+    font-family: 'Ruthless Sketch', cursive;
+    font-size: 72px; /* Очень крупно (~2 см на экране) */
+    color: #5C3317; /* Тёмно-коричневый, как медведь */
+    text-shadow: 
+        3px 3px 0 #8B4513, /* Грубая тень */
+        -1px -1px 0 #FFF, /* Светлый контур */
+        0 0 20px rgba(139, 69, 19, 0.3); /* Размытое свечение */
+    margin-bottom: 60px;
+    letter-spacing: 2px;
+    transform: rotate(-2deg); /* Лёгкий наклон */
+}
+
+/* Кнопки */
+.bear-button {
+    display: inline-block;
+    background-color: #2E8B57; /* Лесной зелёный */
+    color: white;
+    font-family: 'Ruthless Sketch', cursive;
+    font-size: 36px;
+    padding: 25px 50px;
+    margin: 20px;
+    border-radius: 50px;
+    border: 4px solid #5C3317; /* Коричневая граница */
+    text-decoration: none;
+    box-shadow: 
+        0 10px 20px rgba(0, 0, 0, 0.2),
+        inset 0 -5px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Эффекты кнопок */
+.bear-button:hover {
+    background-color: #3CB371;
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 
+        0 15px 25px rgba(0, 0, 0, 0.3),
+        inset 0 -5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.bear-button:active {
+    transform: scale(0.98);
+    box-shadow: 
+        0 5px 10px rgba(0, 0, 0, 0.2),
+        inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Текстура для "пушистости" */
+.bear-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../images/fur-texture.png') repeat;
+    opacity: 0.1;
+    pointer-events: none;
 }
